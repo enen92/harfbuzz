@@ -414,8 +414,7 @@ endif ()
 ## Define harfbuzz library
 add_library(harfbuzz ${project_sources} ${project_extra_sources} ${project_headers})
 target_link_libraries(harfbuzz ${THIRD_PARTY_LIBS})
-target_include_directories(harfbuzz PUBLIC
-                           "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>")
+target_include_directories(harfbuzz INTERFACE $<INSTALL_INTERFACE:include/harfbuzz>)
 
 ## Define harfbuzz-icu library
 if (HB_HAVE_ICU)
